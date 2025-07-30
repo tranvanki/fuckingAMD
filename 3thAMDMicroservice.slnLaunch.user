@@ -1,0 +1,24 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "ReactClient\\reactclient.esproj",
+        "Action": "Start",
+        "DebugTarget": "localhost (Chrome)"
+      },
+      {
+        "Path": "..\\OcelotGateway\\OcelotGateway\\OcelotGateway.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "..\\..\\AuthServices\\AuthService.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "..\\..\\ShortenURLService\\ShortenURLService\\ShortenURLService.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

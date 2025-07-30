@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36121.58
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotGateway", "..\OcelotGateway\OcelotGateway\OcelotGateway.csproj", "{27773AB6-6121-3D1E-6D83-D6FDB3A5181C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService", "..\..\AuthServices\AuthService.csproj", "{C051789F-F05D-6BB8-2897-676B35D7164D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortenURLService", "..\..\ShortenURLService\ShortenURLService\ShortenURLService.csproj", "{C1ABCD5C-A198-EFF0-98BE-B5A4114EE445}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "reactclient", "ReactClient\reactclient.esproj", "{3DAD034F-D828-0AF3-E40C-70CAB525D906}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27773AB6-6121-3D1E-6D83-D6FDB3A5181C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27773AB6-6121-3D1E-6D83-D6FDB3A5181C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27773AB6-6121-3D1E-6D83-D6FDB3A5181C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27773AB6-6121-3D1E-6D83-D6FDB3A5181C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C051789F-F05D-6BB8-2897-676B35D7164D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C051789F-F05D-6BB8-2897-676B35D7164D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C051789F-F05D-6BB8-2897-676B35D7164D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C051789F-F05D-6BB8-2897-676B35D7164D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1ABCD5C-A198-EFF0-98BE-B5A4114EE445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1ABCD5C-A198-EFF0-98BE-B5A4114EE445}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1ABCD5C-A198-EFF0-98BE-B5A4114EE445}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1ABCD5C-A198-EFF0-98BE-B5A4114EE445}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DAD034F-D828-0AF3-E40C-70CAB525D906}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DAD034F-D828-0AF3-E40C-70CAB525D906}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DAD034F-D828-0AF3-E40C-70CAB525D906}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3DAD034F-D828-0AF3-E40C-70CAB525D906}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DAD034F-D828-0AF3-E40C-70CAB525D906}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DAD034F-D828-0AF3-E40C-70CAB525D906}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56F1EEFD-6C4F-4DAB-A3FB-0CA457AC1138}
+	EndGlobalSection
+EndGlobal
