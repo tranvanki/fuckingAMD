@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36121.58
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotGateway", "..\OcelotGateway\OcelotGateway\OcelotGateway.csproj", "{27773AB6-6121-3D1E-6D83-D6FDB3A5181C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService", "..\..\AuthServices\AuthService.csproj", "{C051789F-F05D-6BB8-2897-676B35D7164D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortenURLService", "..\..\ShortenURLService\ShortenURLService\ShortenURLService.csproj", "{C1ABCD5C-A198-EFF0-98BE-B5A4114EE445}"
-EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "reactclient", "ReactClient\reactclient.esproj", "{3DAD034F-D828-0AF3-E40C-70CAB525D906}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortenURLService", "ShortentURLService\ShortenURLService.csproj", "{6CA858F3-BDDA-7A42-00C7-BE005818847C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthDemo", "AuthService\AuthDemo.csproj", "{461A181F-3F01-09FC-D01D-7C1FD4BF21B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotGateway", "OcelotGateway\OcelotGateway\OcelotGateway.csproj", "{B22973CB-73C2-45D1-8FD1-0EB9D3700479}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,24 +17,24 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{27773AB6-6121-3D1E-6D83-D6FDB3A5181C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{27773AB6-6121-3D1E-6D83-D6FDB3A5181C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{27773AB6-6121-3D1E-6D83-D6FDB3A5181C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{27773AB6-6121-3D1E-6D83-D6FDB3A5181C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C051789F-F05D-6BB8-2897-676B35D7164D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C051789F-F05D-6BB8-2897-676B35D7164D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C051789F-F05D-6BB8-2897-676B35D7164D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C051789F-F05D-6BB8-2897-676B35D7164D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C1ABCD5C-A198-EFF0-98BE-B5A4114EE445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C1ABCD5C-A198-EFF0-98BE-B5A4114EE445}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C1ABCD5C-A198-EFF0-98BE-B5A4114EE445}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C1ABCD5C-A198-EFF0-98BE-B5A4114EE445}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3DAD034F-D828-0AF3-E40C-70CAB525D906}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3DAD034F-D828-0AF3-E40C-70CAB525D906}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DAD034F-D828-0AF3-E40C-70CAB525D906}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{3DAD034F-D828-0AF3-E40C-70CAB525D906}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DAD034F-D828-0AF3-E40C-70CAB525D906}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3DAD034F-D828-0AF3-E40C-70CAB525D906}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{6CA858F3-BDDA-7A42-00C7-BE005818847C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CA858F3-BDDA-7A42-00C7-BE005818847C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CA858F3-BDDA-7A42-00C7-BE005818847C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CA858F3-BDDA-7A42-00C7-BE005818847C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{461A181F-3F01-09FC-D01D-7C1FD4BF21B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{461A181F-3F01-09FC-D01D-7C1FD4BF21B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{461A181F-3F01-09FC-D01D-7C1FD4BF21B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{461A181F-3F01-09FC-D01D-7C1FD4BF21B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B22973CB-73C2-45D1-8FD1-0EB9D3700479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B22973CB-73C2-45D1-8FD1-0EB9D3700479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B22973CB-73C2-45D1-8FD1-0EB9D3700479}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B22973CB-73C2-45D1-8FD1-0EB9D3700479}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,15 +8,15 @@
         "DebugTarget": "localhost (Chrome)"
       },
       {
-        "Path": "..\\OcelotGateway\\OcelotGateway\\OcelotGateway.csproj",
+        "Path": "ShortentURLService\\ShortenURLService.csproj",
         "Action": "Start"
       },
       {
-        "Path": "..\\..\\AuthServices\\AuthService.csproj",
+        "Path": "AuthService\\AuthDemo.csproj",
         "Action": "Start"
       },
       {
-        "Path": "..\\..\\ShortenURLService\\ShortenURLService\\ShortenURLService.csproj",
+        "Path": "OcelotGateway\\OcelotGateway\\OcelotGateway.csproj",
         "Action": "Start"
       }
     ]

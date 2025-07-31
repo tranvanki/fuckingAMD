@@ -4,6 +4,7 @@ import { UserPlus, Eye, EyeOff } from 'lucide-react'
 
 const SignupForm = ({ onSwitchToLogin, onClose }) => {
   const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
@@ -25,7 +26,7 @@ const SignupForm = ({ onSwitchToLogin, onClose }) => {
     setIsLoading(true)
 
     try {
-      await signup(username, password)
+      await signup(username, email, password)
       onClose()
     } catch (err) {
       setError(err.message)
@@ -56,6 +57,19 @@ const SignupForm = ({ onSwitchToLogin, onClose }) => {
             required
             disabled={isLoading}
             minLength={3}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email address"
+            required
+            disabled={isLoading}
           />
         </div>
 
@@ -110,7 +124,7 @@ const SignupForm = ({ onSwitchToLogin, onClose }) => {
         <button
           type="submit"
           className="auth-submit-btn"
-          disabled={isLoading || !username || !password || !confirmPassword}
+          disabled={isLoading || !username || !email || !password || !confirmPassword}
         >
           {isLoading ? 'Creating Account...' : 'Create Account'}
         </button>
