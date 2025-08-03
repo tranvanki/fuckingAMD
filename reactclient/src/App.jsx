@@ -6,7 +6,7 @@ import './App.css'
 function App() {
     const [count, setCount] = useState(0)
     const apiEndpoint = "https://localhost:8888/gateway/urls";
-    const [laptops, setLaptops] = useState([])
+    const [urls, setUrls] = useState([])
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
     
@@ -19,7 +19,7 @@ function App() {
                     throw new Error(`HTTP error! status: ${response.status}`)
                 }
                 const data = await response.json()
-                setURLs(data)
+                setUrls(data)
             } catch (err) {
                 setError(err.message)
             } finally {
@@ -46,14 +46,14 @@ function App() {
             
             {/* Display error if any */}
             {error && <p style={{color: 'red'}}>Error: {error}</p>}
-            
+
             {/* Display fetched data */}
             {!isLoading && !error && (
                 <div>
-                    <h2>URLs ({laptops.length})</h2>
-                    {laptops.length > 0 ? (
+                    <h2>URLs ({urls.length})</h2>
+                    {urls.length > 0 ? (
                         <ul>
-                            {laptops.map((item, index) => (
+                            {urls.map((item, index) => (
                                 <li key={index}>
                                     {JSON.stringify(item)}
                                 </li>

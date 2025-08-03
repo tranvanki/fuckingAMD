@@ -12,11 +12,11 @@
         "Action": "Start"
       },
       {
-        "Path": "AuthService\\AuthDemo.csproj",
+        "Path": "OcelotGateway\\OcelotGateway\\OcelotGateway.csproj",
         "Action": "Start"
       },
       {
-        "Path": "OcelotGateway\\OcelotGateway\\OcelotGateway.csproj",
+        "Path": "AuthServices\\WebApplication7.csproj",
         "Action": "Start"
       }
     ]
