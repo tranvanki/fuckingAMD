@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { Link, Copy, Trash2, ExternalLink, LogOut, User, Settings, BarChart3, Shield, Zap } from 'lucide-react'
 import { AuthProvider, useAuth } from './contexts/AuthContext'
 import { ThemeProvider, useTheme } from './contexts/ThemeContext'
@@ -10,14 +10,14 @@ import config from './config'
 import './App.css'
 
 function AppContent() {
-  const [url, setUrl] = useState('')
-  const [customCode, setCustomCode] = useState('')
-  const [shortenedUrls, setShortenedUrls] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
-  const [showAuthModal, setShowAuthModal] = useState(false)
-  const [showSettingsModal, setShowSettingsModal] = useState(false)
-  const { currentUser, logout, token } = useAuth()
-  const { darkMode, setDarkMode } = useTheme()
+    const [url, setUrl] = useState('')
+    const [customCode, setCustomCode] = useState('')
+    const [shortenedUrls, setShortenedUrls] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
+    const [showAuthModal, setShowAuthModal] = useState(false)
+    const [showSettingsModal, setShowSettingsModal] = useState(false)
+    const { currentUser, token,logout } = useAuth()
+    const { darkMode, setDarkMode } = useTheme()
 
   // Load user's URLs when user changes
   useEffect(() => {
@@ -25,10 +25,11 @@ function AppContent() {
       if (config.USE_BACKEND_API) {
         loadUrlsFromBackend()
       } else {
-        loadUrlsFromLocalStorage()
+          setShortenedUrls([])
       }
     } else {
-      setShortenedUrls([])
+        
+        console.log("Backend error")
     }
   }, [currentUser])
 
@@ -48,7 +49,7 @@ function AppContent() {
         shortCode: url.shortenedUrl,
         clicks: 0,
         createdAt: url.createdAt,
-        isCustom: url.isCustom || false
+        isCustom:  IsCustomAlias()||false
       }))
       setShortenedUrls(transformedUrls)
     } catch (error) {
@@ -61,60 +62,6 @@ function AppContent() {
     }
   }
 
-  // Load URLs from localStorage
-  const loadUrlsFromLocalStorage = () => {
-    const userUrls = JSON.parse(localStorage.getItem('userUrls') || '{}')
-    setShortenedUrls(userUrls[currentUser.username] || [])
-  }
-
-  // Save user's URLs to localStorage whenever the list changes (only when not using backend)
-  useEffect(() => {
-    if (!config.USE_BACKEND_API && currentUser && shortenedUrls.length >= 0) {
-      const userUrls = JSON.parse(localStorage.getItem('userUrls') || '{}')
-      userUrls[currentUser.username] = shortenedUrls
-      localStorage.setItem('userUrls', JSON.stringify(userUrls))
-    }
-  }, [shortenedUrls, currentUser])
-
-  // Generate a random short code
-  const generateShortCode = () => {
-    const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-    let result = ''
-    for (let i = 0; i < 6; i++) {
-      result += chars.charAt(Math.floor(Math.random() * chars.length))
-    }
-    return result
-  }
-
-  // Check if short code is already taken (across all users)
-  const isShortCodeTaken = (code) => {
-    const allUserUrls = JSON.parse(localStorage.getItem('userUrls') || '{}')
-    for (const username in allUserUrls) {
-      if (allUserUrls[username].some(item => item.shortCode === code)) {
-        return true
-      }
-    }
-    return false
-  }
-
-  // Validate custom short code
-  const validateCustomCode = (code) => {
-    if (!code) return true // Empty is valid (will use random)
-    
-    if (code.length < 3 || code.length > 20) {
-      return 'Custom code must be between 3 and 20 characters'
-    }
-    
-    if (!/^[a-zA-Z0-9]+$/.test(code)) {
-      return 'Custom code can only contain letters and numbers'
-    }
-    
-    if (isShortCodeTaken(code)) {
-      return 'This custom code is already taken'
-    }
-    
-    return true
-  }
 
   // Validate URL format
   const isValidUrl = (string) => {
@@ -155,33 +102,23 @@ function AppContent() {
 
     setIsLoading(true)
 
-    try {
-      if (config.USE_BACKEND_API) {
-        // Use backend API
-        const result = await apiService.createShortenedUrl(normalizedUrl, customCode.trim())
-        
-        const newShortenedUrl = {
-          id: result.id,
-          originalUrl: result.originalUrl,
-          shortUrl: `${config.DEFAULT_SHORT_DOMAIN}/${result.shortenedUrl}`,
-          shortCode: result.shortenedUrl,
-          clicks: 0,
-          createdAt: result.createdAt,
-          isCustom: result.isCustom || !!customCode.trim()
-        }
+      try {
+          if (config.USE_BACKEND_API) {
+              // Use backend API
+              const result = await apiService.createShortenedUrl(normalizedUrl, customCode.trim())
 
-        setShortenedUrls(prev => [newShortenedUrl, ...prev])
-      } else {
-        // Use localStorage (original functionality)
-        
-        // Validate custom code if provided
-        const customCodeValidation = validateCustomCode(customCode.trim())
-        if (customCodeValidation !== true) {
-          alert(customCodeValidation)
-          setIsLoading(false)
-          return
-        }
-
+              const newShortenedUrl = {
+                  id: result.id,
+                  originalUrl: result.originalUrl,
+                  shortUrl: `https://localhost:8888/gateway/urls/redirect/${result.shortenedUrl}`,
+                  shortCode: result.shortenedUrl,
+                  clicks: 0,
+                  createdAt: result.createdAt,
+                  isCustom: result.isCustom || !!customCode.trim()
+              }
+              console.log('✅ Adding to frontend state:', newShortenedUrl)
+              setShortenedUrls(prev => [newShortenedUrl, ...prev])
+          } else {
         // Simulate API call delay
         await new Promise(resolve => setTimeout(resolve, 500))
 
@@ -212,7 +149,7 @@ function AppContent() {
       setCustomCode('')
     } catch (error) {
       console.error('Failed to shorten URL:', error)
-      alert('Failed to shorten URL. Please try again.')
+      alert('Failed to shorten URL: ${error.message}')
     } finally {
       setIsLoading(false)
     }

@@ -7,7 +7,8 @@ export const config = {
 
     // Other configuration options
     APP_NAME: 'LinkShort',
-    DEFAULT_SHORT_DOMAIN: 'https://short.ly'
+    // Short URL domain for redirects (matches your Ocelot route)
+    DEFAULT_SHORT_DOMAIN: 'https://localhost:8888/gateway/urls/redirect'
 }
 
 export default config

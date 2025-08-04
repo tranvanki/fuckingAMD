@@ -5,6 +5,18 @@
       {
         "Path": "ShortentURLService\\ShortenURLService.csproj",
         "Action": "Start"
+      },
+      {
+        "Path": "ReactClient\\reactclient.esproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "OcelotGateway\\OcelotGateway\\OcelotGateway.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "AuthServices\\WebApplication7.csproj",
+        "Action": "Start"
       }
     ]
   }
