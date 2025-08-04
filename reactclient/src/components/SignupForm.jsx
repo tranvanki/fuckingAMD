@@ -1,10 +1,10 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
 import { UserPlus, Eye, EyeOff } from 'lucide-react'
 
 const SignupForm = ({ onSwitchToLogin, onClose }) => {
   const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState('')  // ✅ Added email field
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
@@ -26,7 +26,7 @@ const SignupForm = ({ onSwitchToLogin, onClose }) => {
     setIsLoading(true)
 
     try {
-      await signup(username, email, password)
+      await signup(username, password, email)  // ✅ Pass email
       onClose()
     } catch (err) {
       setError(err.message)
@@ -67,7 +67,7 @@ const SignupForm = ({ onSwitchToLogin, onClose }) => {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email address"
+            placeholder="Enter your email"
             required
             disabled={isLoading}
           />
